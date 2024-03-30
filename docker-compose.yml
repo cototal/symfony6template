@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  app:
+    build:
+      dockerfile: ./dev.Dockerfile
+    ports:
+      - "4210:80"
+    volumes:
+      - "./:/app"
+    restart: unless-stopped
+    networks:
+      - primary
+    user: developer
+networks:
+  primary:
+    external: true
